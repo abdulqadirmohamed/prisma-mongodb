@@ -22,14 +22,4 @@ export async function GET() {
     return NextResponse.json({ users: user })
 }
 
-export async function DELETE(id) {
 
-    const deleteUser = await prisma.user.delete({
-        where: {
-            id: id
-        }
-    })
-
-    // return NextResponse.json({ message: "User deleted" }, { status: 200 })
-    return deleteUser
-}

@@ -16,9 +16,9 @@ const Users = async () => {
     const {users} = await getAllUsers()
   return (
     <div>
-        {users.map((user)=>(
-            <UsersList email={user.email}/>
-        ))}
+        {users ? users.map((user)=>(
+            <UsersList email={user.email} id={user.id}/>
+        )) : 'No data'}
     </div>
   )
 }
