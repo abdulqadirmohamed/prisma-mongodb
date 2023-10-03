@@ -1,6 +1,6 @@
-'use clients'
+'use client'
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Register = () => {
     const router = useRouter()
@@ -11,9 +11,9 @@ const Register = () => {
     })
 
     const registerUser = async (e) =>{
-        e.preventdefault()
+      e.preventDefault();
 
-        const res = await fetch('',{
+        const res = await fetch('/api/register/',{
             method:'POST',
             headers:{
                 "Content-Type": "application/json"
@@ -22,6 +22,7 @@ const Register = () => {
         })
         const userInfo = await res.json()
         console.log(userInfo)
+        router.push('/')
     }
     
   return (
@@ -58,7 +59,7 @@ const Register = () => {
           />
         </div>
         <div>
-          <button type="submit" className="bg-blue-700 text-white px-4 py-2">Register</button>
+          <button  className="bg-blue-700 text-white px-4 py-2">Register</button>
         </div>
       </form>
     </div>
